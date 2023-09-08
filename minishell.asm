@@ -9,7 +9,7 @@ _start:
 	lea r14, [r15-15]
 
 loop:
-	lea rsi,[rbp-27] ;sign
+	lea rsi,[rbp-25] ;sign
 	call r15
 	
 	; read(0,buf,0x30)
@@ -142,7 +142,7 @@ direntloop:
 	push rax
 	pop rdx
 	syscall
-	lea rsi,[rbp-25]
+	lea rsi,[rbp-24]
 	call r15
 	lea rsi,[rbp+rbx+19] ;d_name
 	call r15
@@ -153,8 +153,8 @@ direntloop:
 	jmp direntloop
 
 
-sign: db '>',0
-gap: db '  ',0
+sign: db '>'
+gap: db ' ',0
 failstr: db 'err'
 lf: db 10, 0
 filetypetable: db 'ufc?d?b?r?l?s?w'
